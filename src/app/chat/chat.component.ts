@@ -32,7 +32,7 @@ export class ChatComponent {
       console.log('WebSocket connected');
       this.isConnected = true;
 
-      this.stompClient.subscribe('/app/topic/public', (message) => {
+      this.stompClient.subscribe('/topic/public', (message) => {
         console.log('Message received', message.body);
       });
     };

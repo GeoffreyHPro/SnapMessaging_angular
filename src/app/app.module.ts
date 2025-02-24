@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RxStompService } from '@stomp/ng2-stompjs';
+import { HomeComponent } from './home/home.component';
+import { FormLoginComponent } from './form-login/form-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    HomeComponent,
+    FormLoginComponent
   ],
   imports: [
     BrowserModule,
