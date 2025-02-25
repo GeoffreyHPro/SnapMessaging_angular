@@ -7,13 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { HomeComponent } from './home/home.component';
 import { FormLoginComponent } from './form-login/form-login.component';
+import { FormSignupComponent } from './form-signup/form-signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     HomeComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    FormSignupComponent
   ],
   imports: [
     BrowserModule,
