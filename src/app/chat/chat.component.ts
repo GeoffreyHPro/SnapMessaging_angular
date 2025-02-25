@@ -10,12 +10,14 @@ import { Client } from '@stomp/stompjs';
 export class ChatComponent {
   private stompClient!: Client;
   isConnected = false;
+  messages: { text: string; sender: string }[] = [];
+  newMessage: string = '';
 
   ngOnInit() {
     this.connect()
     setTimeout(() => {
       if (this.isConnected) {
-        this.sendMessage();
+        this.sendMessageSocket();
       }
     }, 5000);
   }
@@ -44,10 +46,22 @@ export class ChatComponent {
     this.stompClient.activate();
   }
 
-  sendMessage() {
+  sendMessageSocket() {
     this.stompClient.publish({
       destination: "/app/chat.addUser",
       body: JSON.stringify({ "sender": "web", "type": "JOIN" })
     });
+  }
+
+  sendMessage() {
+    if (this.newMessage.trim() !== '') {
+      this.messages.push({ text: this.newMessage, sender: 'You' });
+      this.newMessage = '';
+
+      // Simuler une réponse automatique
+      setTimeout(() => {
+        this.messages.push({ text: "Ceci est une réponse automatique.", sender: 'Bot' });
+      }, 1000);
+    }
   }
 }
