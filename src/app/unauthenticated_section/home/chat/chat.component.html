@@ -1,0 +1,28 @@
+<div id="chat" class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="chat-container">
+      <div class="messages">
+        <div *ngFor="let msg of messages" [ngClass]="{'notification': msg.type === 'JOIN' || msg.type === 'LEAVE',
+         'my-message': msg.sender === username && msg.type === 'CHAT',
+          'bot-message': msg.sender !== username && msg.type === 'CHAT'}">
+          <div *ngIf="msg.type === 'CHAT'; else notChat">
+            <div *ngIf="msg.sender === username; else notMyMessage">
+              {{ msg.content }}
+            </div>
+            <ng-template #notMyMessage>
+              {{ msg.content }}
+            </ng-template>
+          </div>
+          <ng-template #notChat>
+            <strong>{{ msg.content }}</strong>
+          </ng-template>
+        </div>
+      </div>
+      <div class="input-container">
+        <input [disabled]="inputIsDisabled" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"
+          placeholder="Type your message..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

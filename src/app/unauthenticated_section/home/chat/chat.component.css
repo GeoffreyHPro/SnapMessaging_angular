@@ -1,5 +1,8 @@
+#chat {
+    background-color: rgba(84, 84, 85, 0.438);
+}
+
 #chatBox {
-    background-color: white;
     border: 2px solid black;
     height: 250px;
     width: auto;
@@ -13,7 +16,12 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    background: #f9f9f9;
+}
+
+.messages div {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .messages {
@@ -23,22 +31,33 @@
     margin-bottom: 10px;
 }
 
-.messages div {
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
-    max-width: 80%;
+
+.my-message,
+.bot-message {
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    width: 50%;
 }
 
 .my-message {
-    background: #d1e7dd;
+    margin-left: auto;
+    border-radius: 10px 0 10px 10px;
+    background-color: rgba(23, 73, 8, 0.459);
     align-self: flex-end;
     text-align: right;
 }
 
 .bot-message {
-    background: #f8d7da;
+    border-radius: 0 10px 10px 10px;
+    background-color: rgba(24, 61, 95, 0.911);
     align-self: flex-start;
+}
+
+.notification {
+    text-align: center;
+    align-self: center;
+    color: white;
 }
 
 .input-container {
