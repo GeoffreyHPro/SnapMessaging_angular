@@ -1,20 +1,27 @@
+<h1 style="text-align: center; color: white;">{{username}}</h1>
 <div id="chat" class="container mt-5">
   <div class="row justify-content-center">
     <div class="chat-container">
       <div class="messages">
-        <div *ngFor="let msg of messages" [ngClass]="{'notification': msg.type === 'JOIN' || msg.type === 'LEAVE',
-         'my-message': msg.sender === username && msg.type === 'CHAT',
-          'bot-message': msg.sender !== username && msg.type === 'CHAT'}">
+        <div *ngFor="let msg of messages">
           <div *ngIf="msg.type === 'CHAT'; else notChat">
-            <div *ngIf="msg.sender === username; else notMyMessage">
+            <div *ngIf="msg.sender === username; else notMyMessage" class="my-message">
               {{ msg.content }}
             </div>
             <ng-template #notMyMessage>
-              {{ msg.content }}
+              <div style="color: white;">
+                <i>{{msg.sender}}</i>
+                <div class="bot-message">
+                  {{ msg.content }}
+                </div>
+              </div>
+
             </ng-template>
           </div>
           <ng-template #notChat>
-            <strong>{{ msg.content }}</strong>
+            <div class="notification">
+              <strong>{{ msg.content }}</strong>
+            </div>
           </ng-template>
         </div>
       </div>

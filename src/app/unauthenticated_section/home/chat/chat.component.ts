@@ -18,7 +18,7 @@ export class ChatComponent {
   isConnected = false;
   messages: InterfaceMessage[] = [];
   newMessage: string = '';
-  username!: string;
+  username: string = '';
   inputIsDisabled = "true";
 
   ngOnInit() {
