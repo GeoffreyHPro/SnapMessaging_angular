@@ -2,16 +2,18 @@
     <div class="row justify-content-center">
         <div class="card p-4" style="background-color: rgba(5, 1, 26, 0.9); color: white;">
             <h3 class="text-center mb-4">LogIn</h3>
-            <form>
+            <form (submit)="handleButtonSignIn($event)">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+                    <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email"
+                        placeholder="Entrez votre email">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
+                    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password"
+                        placeholder="Entrez votre mot de passe">
                 </div>
-                <button type="submit" (click)="handleButtonSignIn()" class="btn w-100"
+                <button type="submit" class="btn w-100"
                     style="background-color: rgba(14, 110, 78, 0.671); color: white;">SignIn</button>
             </form>
         </div>

@@ -8,14 +8,16 @@ import { Router } from '@angular/router';
   styleUrl: './form-login.component.css'
 })
 export class FormLoginComponent {
+  email: string = "";
+  password: string = "";
 
   constructor(
     private authService: AuthService,
     private router: Router) {
   }
 
-  handleButtonSignIn() {
-    this.authService.signIn("admin@admin.com", "password").subscribe(
+  handleButtonSignIn(event: Event) {
+    this.authService.signIn(this.email, this.password).subscribe(
       response => {
         console.log(response);
         if (response.status == 200) {
