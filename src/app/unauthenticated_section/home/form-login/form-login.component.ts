@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -7,4 +9,24 @@ import { Component } from '@angular/core';
 })
 export class FormLoginComponent {
 
+  constructor(
+    private authService: AuthService,
+    private router: Router) {
+  }
+
+  handleButtonSignIn() {
+    this.authService.signIn("admin@admin.com", "password").subscribe(
+      response => {
+        console.log(response);
+        if (response.status == 200) {
+          localStorage.setItem("Role", response.body.role);
+          localStorage.setItem("Token", response.body.token);
+          this.router.navigateByUrl('user/user-contacts');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }

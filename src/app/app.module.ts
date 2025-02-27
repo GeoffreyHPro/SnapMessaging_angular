@@ -10,6 +10,7 @@ import { FormSignupComponent } from './unauthenticated_section/home/form-signup/
 import { ChatComponent } from './unauthenticated_section/home/chat/chat.component';
 import { ContactsComponent } from './authenticated_section/contacts/contacts.component';
 import { UserTemplateComponent } from './authenticated_section/user-template/user-template.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,10 @@ import { UserTemplateComponent } from './authenticated_section/user-template/use
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [
-    RxStompService 
+    RxStompService,
   ],
   bootstrap: [AppComponent]
 })
