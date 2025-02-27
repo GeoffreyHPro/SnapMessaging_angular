@@ -8,6 +8,7 @@ import { HomeComponent } from './unauthenticated_section/home/home.component';
 import { FormLoginComponent } from './unauthenticated_section/home/form-login/form-login.component';
 import { FormSignupComponent } from './unauthenticated_section/home/form-signup/form-signup.component';
 import { ChatComponent } from './unauthenticated_section/home/chat/chat.component';
+import { ContactsComponent } from './authenticated_section/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ChatComponent } from './unauthenticated_section/home/chat/chat.componen
     ChatComponent,
     HomeComponent,
     FormLoginComponent,
-    FormSignupComponent
+    FormSignupComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
