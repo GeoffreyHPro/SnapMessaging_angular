@@ -1,0 +1,35 @@
+<h1 style="text-align: center; color: white;">{{username}}</h1>
+<div id="chat" class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="chat-container">
+      <div class="messages">
+        <div *ngFor="let msg of messages">
+          <div *ngIf="msg.type === 'CHAT'; else notChat">
+            <div *ngIf="msg.sender === username; else notMyMessage" class="my-message">
+              {{ msg.content }}
+            </div>
+            <ng-template #notMyMessage>
+              <div style="color: white;">
+                <i>{{msg.sender}}</i>
+                <div class="bot-message">
+                  {{ msg.content }}
+                </div>
+              </div>
+
+            </ng-template>
+          </div>
+          <ng-template #notChat>
+            <div class="notification">
+              <strong>{{ msg.content }}</strong>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="input-container">
+        <input [disabled]="inputIsDisabled" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"
+          placeholder="Type your message..." />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
