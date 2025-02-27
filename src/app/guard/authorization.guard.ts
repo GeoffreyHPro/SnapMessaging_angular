@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, Router, R
 @Injectable({
   providedIn: "root"
 })
-export class authenticationGuard implements CanActivate {
+export class authorizationGuard implements CanActivate {
   constructor(private router: Router) {
 
   }
@@ -13,7 +13,7 @@ export class authenticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): MaybeAsync<GuardResult> {
 
-    if (localStorage.getItem("Token") != "") {
+    if (localStorage.getItem("Role") == "USER") {
       return true;
     }
     this.router.navigateByUrl("home");

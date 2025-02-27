@@ -9,6 +9,7 @@ import { FormLoginComponent } from './unauthenticated_section/home/form-login/fo
 import { FormSignupComponent } from './unauthenticated_section/home/form-signup/form-signup.component';
 import { ChatComponent } from './unauthenticated_section/home/chat/chat.component';
 import { ContactsComponent } from './authenticated_section/contacts/contacts.component';
+import { UserTemplateComponent } from './authenticated_section/user-template/user-template.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ContactsComponent } from './authenticated_section/contacts/contacts.com
     HomeComponent,
     FormLoginComponent,
     FormSignupComponent,
-    ContactsComponent
+    ContactsComponent,
+    UserTemplateComponent
   ],
   imports: [
     BrowserModule,
