@@ -22,6 +22,14 @@ export class MessagesService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-    return this.httpClient.get(`http://localhost:8080/message/conversation?otherUser=${idOtherUser}`, {headers});
+    return this.httpClient.get(`http://localhost:8080/message/conversation?otherUser=${idOtherUser}`, { headers });
+  }
+
+  getLastMessage(idOtherUser: number): Observable<any> {
+    const token = localStorage.getItem("Token")!
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.httpClient.get(`http://localhost:8080/lastMessage/conversation?otherUser=${idOtherUser}`, { headers });
   }
 }
