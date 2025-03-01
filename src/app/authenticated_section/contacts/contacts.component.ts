@@ -8,6 +8,7 @@ import { MessagesService } from '../../service/messages.service';
 })
 export class ContactsComponent {
   searchValue: string = "";
+  listContacts: number[] = [];
 
   constructor(private messagesService: MessagesService) {
 
@@ -21,21 +22,17 @@ export class ContactsComponent {
   ngOnInit() {
     this.messagesService.getContacts().subscribe(
       response => {
+        this.listContacts = response;
         console.log(response);
       },
-      error => {
-
-      }
+      error => { }
     )
 
     this.messagesService.getConversation(2).subscribe(
       response => {
         console.log(response);
       },
-      error => {
-
-      }
+      error => { }
     )
-
   }
 }
