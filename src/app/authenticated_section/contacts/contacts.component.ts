@@ -7,8 +7,15 @@ import { MessagesService } from '../../service/messages.service';
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
+  searchValue: string = "";
+
   constructor(private messagesService: MessagesService) {
 
+  }
+
+  onSearchValueChanged(value: string) {
+    this.searchValue = value;
+    console.log(value);
   }
 
   ngOnInit() {
@@ -29,6 +36,6 @@ export class ContactsComponent {
 
       }
     )
-    
+
   }
 }

@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './user-template.component.css'
 })
 export class UserTemplateComponent {
-
 }
