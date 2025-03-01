@@ -7,12 +7,14 @@ import { UserTemplateComponent } from './authenticated_section/user-template/use
 import { authorizationGuard } from './guard/authorization.guard';
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
+  { path: "", component: HomeComponent },
   {
     path: "user", component: UserTemplateComponent, canActivate: [authenticationGuard, authorizationGuard], children: [
       { path: "user-contacts", component: ContactsComponent }
     ]
   },
+
+  {path: "**", redirectTo: "", pathMatch: "full"}
 ];
 
 @NgModule({
