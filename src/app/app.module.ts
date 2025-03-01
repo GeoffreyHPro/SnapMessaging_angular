@@ -11,6 +11,7 @@ import { ChatComponent } from './unauthenticated_section/home/chat/chat.componen
 import { ContactsComponent } from './authenticated_section/contacts/contacts.component';
 import { UserTemplateComponent } from './authenticated_section/user-template/user-template.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchBarComponent } from './authenticated_section/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormLoginComponent,
     FormSignupComponent,
     ContactsComponent,
-    UserTemplateComponent
+    UserTemplateComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
